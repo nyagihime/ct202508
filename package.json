@@ -6,14 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "biome:format": "biome format --write ./src",
+    "biome:lint": "biome lint --write ./src",
+    "biome:check": "biome check --write ./src"
   },
   "dependencies": {
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "sass": "^1.90.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.1.4",
     "@eslint/js": "^9.32.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
