@@ -1,0 +1,75 @@
+@use '../scss/autoload' as g;
+@use 'sass:map';
+
+.search-result {
+  width: g.$pc-content-width;
+  margin: 0 auto;
+
+  a {
+    text-decoration: none;
+    &:link, &visited {
+      color: g.$pal-grey;
+    }
+    &:hover, &:focus {
+      color: g.$pal-orange;
+      text-decoration: none;
+    }
+    transition: color 0.3s ease-in-out;
+  }
+
+  &-item {
+    font-size: g.getSize(2);
+    color: g.$pal-grey;
+    border: 1px solid g.$pal-grey;
+    border-radius: g.getSize(map.get(g.$element-radius, 'm'));
+    padding: g.getSize(2);
+    margin: g.getSize(3) 0;
+
+    &-name {
+      font-size: g.getSize(3);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      gap: g.getSize(1);
+    }
+
+    &-avatar {
+      width: 32px;
+      height: auto;
+    }
+
+    &-full-name {
+      margin-right: auto;
+      border-radius: g.getSize(map.get(g.$element-radius, 's'));
+    }
+  }
+}
+
+.repository-meta {
+  display: flex;
+  gap: g.getSize(2);
+  margin-top: g.getSize(2);
+  padding: g.getSize(1) g.getSize(1) 0;
+  border-top: 1px solid g.$pal-grey;
+
+  span {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: g.getSize(1);
+  }
+
+
+  &-star {
+    color: g.$pal-yellow;
+  }
+
+  &-watch {
+    color: g.$pal-purple;
+  }
+
+  &-fork {
+    color: g.$pal-green;
+  }
+}

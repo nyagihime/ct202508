@@ -12,6 +12,7 @@
     "biome:check": "biome check --write ./src"
   },
   "dependencies": {
+    "@iconify-icon/react": "^3.0.0",
     "@octokit/types": "^14.1.0",
     "octokit": "^5.0.3",
     "react": "^19.1.1",
