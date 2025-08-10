@@ -1,0 +1,19 @@
+@use 'scss/autoload' as g;
+.app-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  min-height: 100vh;
+}
+
+.search-form {
+  width: g.$pc-content-width;
+  margin: auto;
+  padding: g.getSize(2);
+  flex: 1;
+}
+
+.result-loading {
+  flex: 8;
+}

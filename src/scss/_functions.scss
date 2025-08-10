@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+@function getSize($n) {
+  @return math.div($n * 8, 16) * 1rem;
+}
+
+/**
+ * Calculate letter-spacing
+  * @param $size: letter-spacing size in 1/1000em
+  * @param $negative: if true, returns negative letter-spacing
+ */
+@function letter-spacing($size, $negative: false) {
+  @if $negative {
+    @return -(math.div($size, 1000) * 1em);
+  } @else {
+    @return math.div($size, 1000) * 1em;
+  }
+}
+
+/**
+ * Calculate line-height as a ratio of font-size
+  * @param $fs: font-size
+  * @param $lh: line-height
+ */
+@function line-height($fs, $lh) {
+  @return math.div($lh, $fs);
+}

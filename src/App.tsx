@@ -1,8 +1,7 @@
-import './App.css'
-
 import { useEffect, useRef, useState } from 'react'
 import { Octokit } from 'octokit'
 
+import styles from './App.module.scss'
 import PaginateNav from './components/PatinateNav'
 import SearchInput from './components/SearchInput.tsx'
 import SearchResult from './components/SearchResult'
@@ -16,13 +15,13 @@ type SortKey = 'stars' | 'forks' | 'updated'
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [sortKey, setSortKey] = useState<SortKey>('stars')
-  const [perPage, setPerPage] = useState<number>(10)
   const [paged, setPaged] = useState<number>(1)
   const [query, setQuery] = useState<string>('')
   const [result, setResult] = useState<ResultState | null>(null)
   const octokitRef = useRef<Octokit | null>(null)
 
-  const perPageOptions = [5, 10, 20, 50, 100]
+  const perPage = parseInt(import.meta.env.VITE_SHOW_RESULTS_PER_PAGE) || 10
+
   const sortKeyOptions: SortKey[] = ['stars', 'forks', 'updated']
 
   useEffect(() => {
@@ -60,23 +59,12 @@ function App() {
   }, [paged])
 
   return (
-    <main>
-      <div>
+    <main className={styles['app-main']}>
+      <div className={styles['search-form']}>
         <SearchInput
           onChange={(value: string) => setQuery(value)}
           value={query}
         />
-        {/* todo: いまのままだと、クエリ実行前に perPage の値だけ変わってしまうので paginate 制御が変になる */}
-        <select
-          onChange={(e) => setPerPage(parseInt(e.target.value))}
-          value={perPage}
-        >
-          {perPageOptions.map((num) => (
-            <option key={`optPerPage-${num}`} value={num}>
-              {num}
-            </option>
-          ))}
-        </select>
         <select
           onChange={(e) => setSortKey(e.target.value as SortKey)}
           value={sortKey}
@@ -91,9 +79,8 @@ function App() {
           Search
         </button>
       </div>
-      paged: {paged}
       {isLoading && (
-        <div className="loading">
+        <div className={styles['result-loading']}>
           <span>Loading...</span>
         </div>
       )}

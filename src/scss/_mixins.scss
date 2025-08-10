@@ -1,0 +1,17 @@
+@use 'variables' as v;
+@use 'sass:map';
+
+/**
+ * Media Query Mixin
+ * Usage:
+ *  @include mq($breakpoint) {
+ *    // styles for the specified breakpoint
+ *  }
+ *
+ * @param $breakpoint: the breakpoint to target, defaults to 'sp'
+ */
+@mixin mq($breakpoint: sp ) {
+  @media #{map.get(v.$breakpoints, $breakpoint)} {
+    @content;
+  }
+}

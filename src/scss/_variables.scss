@@ -1,0 +1,25 @@
+$pc-content-width: 800px;
+
+// usage:
+//  g.getSize(map.get(g.$element-radius, 's'));
+$element-radius: (
+  's': 0.5,
+  'm': 1,
+  'l': 2,
+);
+
+$breakpoints: (
+  'sp': 'screen and (max-width: 768px)',
+) !default;
+
+$pal-white: #f7f7f7;
+$pal-grey: #9e9e9e;
+$pal-dark-grey: #333;
+$pal-black: #242424;
+$pal-darkness: #111;
+$pal-yellow: #fdd835;
+$pal-orange: #ef6c00;
+$pal-purple: #7b1fa2;
+$pal-green: #1b5e20;
+$pal-blue: #2962ff;
+$pal-red: #b71c1c;

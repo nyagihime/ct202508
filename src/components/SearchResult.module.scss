@@ -3,7 +3,8 @@
 
 .search-result {
   width: g.$pc-content-width;
-  margin: 0 auto;
+  flex: 8;
+  margin: auto;
 
   a {
     text-decoration: none;

@@ -1,3 +1,5 @@
+import styles from './PaginateNav.module.scss'
+
 type Props = {
   paged: number
   onPageChange: (newPaged: number) => void
@@ -23,16 +25,18 @@ export default function PatinateNav({
     }
   }
   return (
-    <div>
-      <button disabled={paged <= 1} onClick={paginate('prev')}>
-        prev
-      </button>
-      <span>
-        Page {paged} / {totalPages}
-      </span>
-      <button disabled={paged === totalPages} onClick={paginate('next')}>
-        next
-      </button>
+    <div className={styles['paginate-container']}>
+      <div className={styles.paginate}>
+        <button disabled={paged <= 1} onClick={paginate('prev')}>
+          prev
+        </button>
+        <span>
+          Page {paged} / {totalPages}
+        </span>
+        <button disabled={paged === totalPages} onClick={paginate('next')}>
+          next
+        </button>
+      </div>
     </div>
   )
 }

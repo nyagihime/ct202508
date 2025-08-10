@@ -1,0 +1,18 @@
+@use '../scss/autoload' as g;
+.paginate {
+  width: g.$pc-content-width;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin: auto;
+
+  &-container {
+    position: sticky;
+    bottom: 0;
+    background-color: g.$pal-black;
+    padding: g.getSize(2);
+    border-top: 1px solid g.$pal-dark-grey;
+
+  }
+}
