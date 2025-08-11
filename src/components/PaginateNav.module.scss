@@ -8,10 +8,11 @@
   margin: auto;
 
   &-container {
+    width: 100%;
     position: sticky;
     bottom: 0;
-    background-color: g.$pal-black;
-    padding: g.getSize(2);
+    background-color: rgba(g.$pal-black, .9);
+    padding: g.getSize(3) 0;
     border-top: 1px solid g.$pal-dark-grey;
 
   }

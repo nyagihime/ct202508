@@ -34,6 +34,10 @@ function App() {
     if (!octokitRef.current) {
       throw new Error('Octokit is not initialized')
     }
+    if (!query) {
+      setResult(null)
+      return
+    }
     setIsLoading(true)
     console.log('strat request')
     const response: OctokitResponse<SearchReposData> =
@@ -51,6 +55,18 @@ function App() {
     setIsLoading(false)
   }
 
+  // 検索ボタンが押されたときの処理
+  //   paged が 1 のときは普通に検索を呼ぶ
+  //   paged が 1 以外のときは paged を 1 に変更
+  //   （paged の変化を検知して自動で検索が実行されるので自分では呼ばないでOK）
+  function handleSearchSubmit() {
+    if (paged !== 1) {
+      setPaged(1)
+    } else {
+      handleSearch().then()
+    }
+  }
+
   // biome-ignore lint/correctness/useExhaustiveDependencies: paged の値が変わったときだけ再実行させたいので paged のみを依存関係に指定したい
   useEffect(() => {
     if (query) {
@@ -63,8 +79,10 @@ function App() {
       <div className={styles['search-form']}>
         <SearchInput
           onChange={(value: string) => setQuery(value)}
+          style={{ flex: 2 }}
           value={query}
         />
+        sort:
         <select
           onChange={(e) => setSortKey(e.target.value as SortKey)}
           value={sortKey}
@@ -75,18 +93,19 @@ function App() {
             </option>
           ))}
         </select>
-        <button onClick={() => handleSearch()} type="submit">
+        <button
+          disabled={(!query && result === null) || isLoading}
+          onClick={() => handleSearchSubmit()}
+          type="submit"
+        >
           Search
         </button>
       </div>
-      {isLoading && (
-        <div className={styles['result-loading']}>
-          <span>Loading...</span>
-        </div>
-      )}
+
+      <SearchResult isLoading={isLoading} result={result} />
+
       {!isLoading && result && (
         <>
-          <SearchResult result={result} />
           <PaginateNav
             onPageChange={(newPaged) => setPaged(newPaged)}
             paged={paged}

@@ -12,6 +12,13 @@
   margin: auto;
   padding: g.getSize(2);
   flex: 1;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  gap: g.getSize(1);
+  position: sticky;
+  top: 0;
+  background-color: rgba(g.$pal-black, .9);
 }
 
 .result-loading {
