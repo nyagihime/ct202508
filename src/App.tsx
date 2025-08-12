@@ -98,7 +98,7 @@ function App() {
           onClick={() => handleSearchSubmit()}
           type="submit"
         >
-          Search
+          {!query && result ? 'Reset' : 'Search'}
         </button>
       </div>
 
