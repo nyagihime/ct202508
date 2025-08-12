@@ -6,19 +6,6 @@
   flex: 8;
   margin: auto;
 
-  a {
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-
-    &:link, &visited {
-      color: g.$pal-grey;
-    }
-    &:hover, &:focus {
-      color: g.$pal-orange;
-      text-decoration: none;
-    }
-  }
-
   &-item {
     font-size: g.getSize(2);
     color: g.$pal-grey;
@@ -68,7 +55,7 @@
   }
 
   &-watch {
-    color: g.$pal-purple;
+    color: g.$pal-blue;
   }
 
   &-fork {

@@ -2,16 +2,20 @@
 @use 'sass:map';
 
 .search-input {
-  height: g.$form-height;
   font-size: g.getSize(3);
-  border: 1px solid g.$pal-grey;
   // 右はクリアボタンのサイズ（24px = getSize(3) 相当）を考慮
   padding: g.getSize(1) g.getSize(6) g.getSize(1) g.getSize(2);
+  border: 1px solid g.$pal-grey;
   border-radius: g.getSize(map.get(g.$element-radius, 's'));
+
+  &:focus {
+    outline: none;
+  }
 
   &-container {
     width: 100%;
     position: relative;
+    height: g.$form-height;
   }
 
   &-placeholder {
