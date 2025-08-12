@@ -4,7 +4,7 @@ Simple GitHub repository search tool.
 
 ## setup
 
-Create `.env` or copy `.env.example` and rename it.
+`.env` を作成するか `.env.example` をコピーしてリネームして使います
 
 ```shell
 touch .env
@@ -12,16 +12,15 @@ touch .env
 cp .env.example .env
 ```
 
-[Create personal access token](https://github.com/settings/tokens/new?scopes=repo) and set as value of `VITE_GITHUB_TOKEN`.
+[GitHub の Personal access token を作成](https://github.com/settings/tokens/new?scopes=repo)して、取得できたトークンを `VITE_GITHUB_TOKEN` にセットします
 
 > [!important]
-> Access token needs `repo` scope.
+> デフォルトでは repo スコープを選択してますが、必要に応じて調整してください
 
 ### optional
 
-If you want to change the number of search results displayed,
-please change the `VITE_SHOW_RESULTS_PER_PAGE` value.
-(default: 15)
+`VITE_SHOW_RESULTS_PER_PAGE` の値を変更することで、検索結果1ページあたりの表示数を変更することができます（デフォルトは`10`）
+
 
 ## build
 
@@ -34,3 +33,10 @@ pnpm run build
 ```shell
 pnpm run dev
 ```
+
+
+## 検索クエリ
+
+`user:`, `repo:`, `org:` といったキーワードも使用できます
+
+[検索構文についてはこちらも参照してください](https://docs.github.com/ja/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)
