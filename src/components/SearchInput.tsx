@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Icon } from '@iconify-icon/react'
 
 import styles from './SearchInput.module.scss'
 
@@ -102,6 +103,15 @@ export default function SearchInput({ onChange, value, style }: Props) {
 
       {!value && (
         <span className={styles['search-input-placeholder']}>Search...</span>
+      )}
+
+      {value && (
+        <button
+          className={styles['search-input-clear-button']}
+          onClick={() => onChange('')}
+        >
+          <Icon icon="octicon:x-16" />
+        </button>
       )}
     </div>
   )

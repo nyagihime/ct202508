@@ -2,9 +2,11 @@
 @use 'sass:map';
 
 .search-input {
+  height: g.$form-height;
   font-size: g.getSize(3);
   border: 1px solid g.$pal-grey;
-  padding: g.getSize(1) g.getSize(2);
+  // 右はクリアボタンのサイズ（24px = getSize(3) 相当）を考慮
+  padding: g.getSize(1) g.getSize(6) g.getSize(1) g.getSize(2);
   border-radius: g.getSize(map.get(g.$element-radius, 's'));
 
   &-container {
@@ -18,5 +20,21 @@
     top: 50%;
     left: g.getSize(2);
     transform: translateY(-50%);
+  }
+
+  &-clear-button {
+    border: none;
+    position: absolute;
+    right: g.getSize(2);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: g.$pal-grey;
+    background-color: g.$pal-dark-grey;
+    width: 24px;
+    height: 24px;
   }
 }
