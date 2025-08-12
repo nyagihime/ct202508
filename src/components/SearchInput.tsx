@@ -11,7 +11,7 @@ type Props = {
   style?: CSSProperties
 }
 
-const KEYWORDS = ['repo:', 'user:', 'org:']
+const KEYWORDS = ['repo:', 'user:', 'org:', 'in:']
 const HIGHLIGHT_COLOR = '#6893ff'
 
 function highlightKeywords(text: string) {
