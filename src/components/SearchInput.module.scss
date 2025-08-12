@@ -1,0 +1,22 @@
+@use '../scss/autoload' as g;
+@use 'sass:map';
+
+.search-input {
+  font-size: g.getSize(3);
+  border: 1px solid g.$pal-grey;
+  padding: g.getSize(1) g.getSize(2);
+  border-radius: g.getSize(map.get(g.$element-radius, 's'));
+
+  &-container {
+    width: 100%;
+    position: relative;
+  }
+
+  &-placeholder {
+    color: g.$pal-grey;
+    position: absolute;
+    top: 50%;
+    left: g.getSize(2);
+    transform: translateY(-50%);
+  }
+}
